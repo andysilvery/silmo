@@ -15,20 +15,21 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ url_for("home")}}">Home</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Categories
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{{ url_for("login")}}">Login</a></li>
-            <li><a class="dropdown-item" href="#">Projects</a></li>
-            <li><a class="dropdown-item" href="#">Shopping</a></li>
-            <li><a class="dropdown-item" href="{{ url_for("about")}}">About</a></li>
+           <li><a class="dropdown-item" href="#" style="background-color: #001F79; color:#fff">Live Projects</a></li>
+            <li><a class="dropdown-item" href="#" style="background-color: #001F79; color:#fff">#Women Shop</a></li>
+            <li><a class="dropdown-item" href="#" style="background-color: #001F79; color:#fff">Hire a Driver</a></li>
+            <li><a class="dropdown-item" href="#" style="background-color: #001F79; color:#fff">Hire a Car</a></li>
+            <li><a class="dropdown-item" href="#" style="background-color: #001F79; color:#fff">Find a Tutor</a></li>
+            {%if "user" not in session %}
+                <li><a class="dropdown-item" href="{{ url_for("user")}}" style="background-color: #001F79; color:#fff">Profile</a></li>
+            {% endif %}
+            <li><a class="dropdown-item" href="{{ url_for("about")}}" style="background-color: #001F79; color:#fff">About</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            {%if "user" in session %}
+                <li><a class="dropdown-item" href="#" style="background-color: #001F79; color:#fff">{{name}} Account</a></li>
+                <li><a class="dropdown-item" href="{{ url_for("logout")}}" style="background-color: #001F79; color:#fff">Logout</a></li>
+
+            {% endif %}
           </ul>
         </li>
         <li class="nav-item">
